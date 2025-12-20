@@ -13,16 +13,22 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
+            
+            // Custom Fields based on your design
+            $table->string('username')->unique();
+            $table->string('mobile_number', 20)->unique();
             $table->string('password');
+            
+            // Standard Laravel fields
             $table->rememberToken();
             $table->timestamps();
         });
 
+        // These tables are standard and usually needed, kept as is.
         Schema::create('password_reset_tokens', function (Blueprint $table) {
-            $table->string('email')->primary();
+            // Changed from email to username or mobile based on your preference
+            // Assuming reset via mobile/username
+            $table->string('mobile_number')->primary(); 
             $table->string('token');
             $table->timestamp('created_at')->nullable();
         });
