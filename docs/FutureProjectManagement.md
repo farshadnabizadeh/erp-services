@@ -81,3 +81,9 @@ Typing `./vendor/bin/sail` every time is tedious. You can create a shortcut so y
 sail up -d
 sail artisan migrate
 ```
+
+
+**Seeder Runner:**
+```bash
+./vendor/bin/sail artisan  migrate:fresh --seed
+```
